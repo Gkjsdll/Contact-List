@@ -127,6 +127,10 @@ $(document).ready(function(){
       $contactsBody.append($contact);
       contacts.push(storeContact);
       updateLocalStorage();
+      if(!localStorage.motdPrompted){
+        localStorage.motdPrompted = "true";
+        swal("You can double click on a contact's info to change it.","","success");
+      }
     }
   };
 
