@@ -28,8 +28,7 @@ $(document).ready(function(){
 
   $contactsBody.on("dblclick", ".contactRow td", function(){
     $editing = $(this);
-    debugger;
-    swal({   title: "Editing "+$editing.attr('class').slice(7)+": ",
+    swal({   title: "Editing "+$editing.parent().find('.contactName').text()+"'s "+$editing.attr('class').slice(7)+": ",
       text: "Current Value: "+$editing.text(),
       type: "input",
       inputType: "text",
@@ -39,16 +38,13 @@ $(document).ready(function(){
       inputPlaceholder: "New value"
     },
     function(inputValue){
-      console.log(inputValue);
       if (inputValue === false){
-        debugger;
         return false;
       }
       if (inputValue === "") {
         swal.showInputError("You need to write something!");
         return false;
       }
-      debugger;
       $editing.text(inputValue);
       contacts[$editing.closest('tr').data('id')-1][($editing.attr('class').slice(7).toLowerCase())] = inputValue;
       updateLocalStorage();
