@@ -1,0 +1,63 @@
+#contactTemplate td:first-child{
+  padding-top: 18px;
+}
+
+body {
+  background-color: #FFF5CE;
+  text-align: center;
+  font-family: 'Noto Sans', sans-serif;
+}
+
+.container-fluid{
+  margin-top:80px;
+}
+
+#headerRow > .headerData{
+  border-bottom: 2px solid lightgrey;
+  background-color: white;
+  font-size: 20px;
+
+}
+
+.contactDelete{
+  padding: 0px;
+}
+
+.contactDelete button{
+  width: 32px;
+  height: 32px;
+  padding: 0px;
+  padding-top: 3px;
+}
+
+#newContact {
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  height: 80px;
+  padding-top: 16px;
+  background-color: #cedeff;
+}
+
+#newAddress {
+  width: 563px;
+  margin-top: 4px;
+}
+
+#upperNewContact{
+  width: 100%;
+}
+
+#contactsBody{
+  border-left: 2px solid lightgrey;
+  border-right: 2px solid lightgrey;
+}
+
+#contactsBody td{
+  border: 2px solid lightgrey;
+  background-color: #F5FFE8;
+}
+
+input:focus, input:active, button:focus {
+  outline: 0px;
+}

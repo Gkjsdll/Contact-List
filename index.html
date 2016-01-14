@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact List</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link href='https://fonts.googleapis.com/css?family=Noto+Sans&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <form id="newContact">
+    <div id="upperNewContact">
+      <input type="text" id="newName" placeholder="Name" value="John Doe">
+      <input type="email" id="newEmail" placeholder="E-Mail" value="joedoe@foo.bar">
+      <input type="tel" id="newPhone" placeholder="Phone Number" value="1-234-867-5306">
+      <button id="createNewContact">Add Contact</button>
+    </div>
+    <input type="text" id="newAddress" placeholder="Street Address" value="1600 Pennsylvania Ave NW, Washington, DC 20500">
+  </form>
+  <div class="container-fluid">
+    <table class ="col-xs-10 col-xs-offset-1"id="contacts">
+      <tbody id="contactsBody">
+        <tr id="headerRow">
+          <td class="headerData">Name</td>
+          <td class="headerData">E-Mail</td>
+          <td class="headerData">Phone Number</td>
+          <td class="headerData">Street Address</td>
+          <td class="headerData">Remove</td>
+        </tr>
+        <tr id="contactTemplate" class="contactRow">
+          <td class="contactName">–</td>
+          <td class="contactEMail">–</td>
+          <td class="contactPhone">–</td>
+          <td class="contactAddress">–</td>
+          <td class="contactDelete">
+            <button type="button" class="btn btn-default btn-lg">
+              <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
