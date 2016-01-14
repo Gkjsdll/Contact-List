@@ -13,14 +13,14 @@
   <form id="newContact">
     <div id="upperNewContact">
       <input type="text" id="newName" placeholder="Name" value="John Doe" required>
-      <input type="email" id="newEmail" placeholder="E-Mail" value="joedoe@foo.bar">
+      <input type="Email" id="newEmail" placeholder="E-Mail" value="joedoe@foo.bar">
       <input type="tel" id="newPhone" placeholder="Phone Number" value="1-234-867-5306">
       <button id="createNewContact">Add Contact</button>
     </div>
     <input type="text" id="newAddress" placeholder="Street Address" value="1600 Pennsylvania Ave NW, Washington, DC 20500">
   </form>
   <div class="container-fluid">
-    <table class ="col-xs-10 col-xs-offset-1"id="contacts">
+    <table class ="col-xs-10 col-xs-offset-1" id="allContacts">
       <colgroup>
         <col span="1">
         <col span="1">
@@ -36,9 +36,9 @@
           <td class="headerData">Street Address</td>
           <td class="headerData">Remove</td>
         </tr>
-        <tr id="contactTemplate" class="contactRow">
+        <tr id="contactTemplate">
           <td class="contactName">–</td>
-          <td class="contactEMail">–</td>
+          <td class="contactEmail">–</td>
           <td class="contactPhone">–</td>
           <td class="contactAddress">–</td>
           <td class="contactDelete">
@@ -53,6 +53,7 @@
 
 
   <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.0.0/lodash.min.js"></script>
   <script src="sweet-alert.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
   <script src="main.js"></script>
