@@ -25,8 +25,27 @@ $(document).ready(function(){
   var contacts = JSON.parse(localStorage.contacts);
 
   $contactsBody.on("dblclick", ".contactRow td", function(){
-    debugger;
+    console.log(this);
+    swal({   title: "An input!",
+      text: "Write something interesting:",
+      type: "input",
+      inputType: "date",
+      showCancelButton: true,
+      closeOnConfirm: false,
+      animation: "slide-from-top",
+      inputPlaceholder: "Write something"
+    },
+    function(inputValue){
+      console.log(inputValue);
+      if (inputValue === false) return false;
+      if (inputValue === "") {
+        swal.showInputError("You need to write something!");
+        return false
+      } swal("Nice!", "You wrote: " + inputValue, "success");
+    });
+
   });
+
 
   $createNewContact.click(function(e){
     e.preventDefault();
@@ -38,22 +57,21 @@ $(document).ready(function(){
   initList();
 
   function initList(){
-    debugger;
     Object.keys(contacts).map(function(value, index){
       if(!contacts[index].removed){
-        debugger;
+
         var $contact = $contactTemplate.clone().removeAttr('id').addClass('contactRow')
           .data('name', contacts[index].name)
           .data('email', contacts[index].email)
           .data('phone', contacts[index].phone)
           .data('address', contacts[index].address)
           .data('id', contacts[index].id);
-        debugger;
+
         $contact.find('.contactName').text(contacts[index].name);
         $contact.find('.contactEmail').text(contacts[index].email);
         $contact.find('.contactPhone').text(contacts[index].phone);
         $contact.find('.contactAddress').text(contacts[index].address);
-        debugger;
+
         $contactsBody.append($contact);
       }
     });
@@ -94,13 +112,11 @@ $(document).ready(function(){
         $contact.data("address", storeAddress);
         storeContact.address = storeAddress;
       }
-      debugger;
       localStorage.maxID = (1 + Number(localStorage.maxID)).toString();
       storeContact.id = localStorage.maxID;
       $contact.data("id", localStorage.maxID);
       $contact.data("removed", false);
       storeContact.removed = false;
-      debugger;
       $contactsBody.append($contact);
       contacts.push(storeContact);
       updateLocalStorage();
@@ -113,7 +129,6 @@ $(document).ready(function(){
 
   function deleteRow(){
     var id = $(this).closest('tr').data('id');
-    debugger;
     contacts[id-1].removed = true;
     updateLocalStorage();
     $(this).closest('tr').remove();
