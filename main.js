@@ -9,6 +9,9 @@ $(document).ready(function(){
   var $contactTemplate = $('#contactTemplate');
   var $contactsBody = $('#contactsBody');
   var $editing = null;
+  var $headers = $('.headerRow td');
+
+  var sorting = {"by": "name", "order": "forward"};
 
   var storeContactTemplate = {"name": "–", "email": "–", "phone": "–", "address": "–"};
   var storeName;
@@ -47,6 +50,7 @@ $(document).ready(function(){
       }
       $editing.text(inputValue);
       contacts[$editing.closest('tr').data('id')-1][($editing.attr('class').slice(7).toLowerCase())] = inputValue;
+      $editing.closest('tr').data($editing.attr('class').slice(7).toLowerCase(), inputValue);
       updateLocalStorage();
       swal.close();
       $editing = null;
@@ -60,6 +64,11 @@ $(document).ready(function(){
   });
 
   $contactsBody.on("click", ".btnDeleteRow", deleteRow);
+
+  $headers.click(function(){
+    debugger;
+    sortRows()
+  });
 
   initList();
 
@@ -144,4 +153,11 @@ $(document).ready(function(){
     updateLocalStorage();
     $(this).closest('tr').remove();
   }
+
+  function sortRows($target){
+    debugger;
+  var contacts = _.sortBy(friends, $targetClass);
+
+  };
+
 });
