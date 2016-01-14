@@ -8,12 +8,14 @@ $(document).ready(function(){
   var $createNewContact = $('#createNewContact');
   var $contactTemplate = $('#contactTemplate');
   var $contactsBody = $('#contactsBody');
+  var $editing = null;
 
   var storeContactTemplate = {"name": "–", "email": "–", "phone": "–", "address": "–"};
   var storeName;
   var storeEmail;
   var storePhone;
   var storeAddress;
+
 
   if(!localStorage.contacts){
     localStorage.contacts = "[]";
@@ -25,11 +27,11 @@ $(document).ready(function(){
   var contacts = JSON.parse(localStorage.contacts);
 
   $contactsBody.on("dblclick", ".contactRow td", function(){
-    console.log(this);
+    $editing = $(this);
     swal({   title: "An input!",
       text: "Write something interesting:",
       type: "input",
-      inputType: "date",
+      inputType: "text",
       showCancelButton: true,
       closeOnConfirm: false,
       animation: "slide-from-top",
@@ -40,12 +42,16 @@ $(document).ready(function(){
       if (inputValue === false) return false;
       if (inputValue === "") {
         swal.showInputError("You need to write something!");
-        return false
-      } swal("Nice!", "You wrote: " + inputValue, "success");
+        return false;
+      }
+      debugger;
+      $editing.text(inputValue);
+      contacts[$editing.closest('tr').data('id')-1][($editing.attr('class').slice(7).toLowerCase())] = inputValue;
+      updateLocalStorage();
+      swal.close();
     });
 
   });
-
 
   $createNewContact.click(function(e){
     e.preventDefault();

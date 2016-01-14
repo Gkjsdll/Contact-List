@@ -1,3 +1,17 @@
+.no-select {  /*Prevents the user from selecting text*/
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: default;
+}
+
+.contactRow td{
+  cursor: pointer;
+}
+
 body {
   background-color: #FFF5CE;
   text-align: center;
