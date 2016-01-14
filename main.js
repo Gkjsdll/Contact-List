@@ -14,6 +14,8 @@ $(document).ready(function(){
     newContact()
   });
 
+  $contactsBody.on("click", ".btnDeleteRow", deleteRow);
+
   function newContact(){
     if(!$newName.val() || (!$newEmail.val() && !$newPhone.val() && !$newAddress.val())){
       if(!$newName.val()){
@@ -39,4 +41,8 @@ $(document).ready(function(){
     }
   };
 
+  function deleteRow(){
+    $(this).closest('tr').remove();
+    debugger;
+  }
 });
