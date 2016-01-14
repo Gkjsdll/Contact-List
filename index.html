@@ -3,9 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <title>Contact List</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-  <link href='https://fonts.googleapis.com/css?family=Noto+Sans&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
   <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" href="sweet-alert.css">
+  <link href='https://fonts.googleapis.com/css?family=Noto+Sans&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -20,6 +21,13 @@
   </form>
   <div class="container-fluid">
     <table class ="col-xs-10 col-xs-offset-1"id="contacts">
+      <colgroup>
+        <col span="1">
+        <col span="1">
+        <col span="1">
+        <col span="1">
+        <col span="1" style="width: 40px;">
+      </colgroup>
       <tbody id="contactsBody">
         <tr id="headerRow">
           <td class="headerData">Name</td>
@@ -44,8 +52,8 @@
   </div>
 
 
-
   <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+  <script src="sweet-alert.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
   <script src="main.js"></script>
 </body>

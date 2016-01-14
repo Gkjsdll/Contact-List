@@ -9,14 +9,24 @@ $(document).ready(function(){
   var $contactTemplate = $('#contactTemplate');
 
   $createNewContact.click(function(e){
-    debugger;
     e.preventDefault();
     newContact()
   });
 
   function newContact(){
-
-    var $contact = $contactTemplate.clone().attr('id','');
     debugger;
+    if(!$newName.val() || (!$newEmail.val() && !$newPhone.val() && !$newAddress.val())){
+        if(!$newName.val()){
+          swal("Please enter a name","","error");
+        }
+        else{
+          swal("Please enter at least one more piece of information","","error");
+        }
+    }
+    else{
+      var $contact = $contactTemplate.clone().attr('id','');
+      swal("Proper information provided","","success");
+    }
   };
+
 });
