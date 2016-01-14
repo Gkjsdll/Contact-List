@@ -7,6 +7,7 @@ $(document).ready(function(){
   var $newAddress = $('#newAddress');
   var $createNewContact = $('#createNewContact');
   var $contactTemplate = $('#contactTemplate');
+  var $contactsBody = $('#contactsBody');
 
   $createNewContact.click(function(e){
     e.preventDefault();
@@ -14,18 +15,27 @@ $(document).ready(function(){
   });
 
   function newContact(){
-    debugger;
     if(!$newName.val() || (!$newEmail.val() && !$newPhone.val() && !$newAddress.val())){
-        if(!$newName.val()){
-          swal("Please enter a name","","error");
-        }
-        else{
-          swal("Please enter at least one more piece of information","","error");
-        }
+      if(!$newName.val()){
+        swal("Please enter a name","","error");
+      }
+      else{
+        swal("Please enter at least one more piece of information","","error");
+      }
     }
     else{
       var $contact = $contactTemplate.clone().attr('id','');
-      swal("Proper information provided","","success");
+      $contact.children().filter('.contactName').text($newName.val());
+      if($newEmail.val()){
+        $contact.children().filter('.contactEMail').text($newEmail.val());
+      }
+      if($newEmail.val()){
+        $contact.children().filter('.contactPhone').text($newPhone.val());
+      }
+      if($newEmail.val()){
+        $contact.children().filter('.contactAddress').text($newAddress.val());
+      }
+      $contactsBody.append($contact);
     }
   };
 

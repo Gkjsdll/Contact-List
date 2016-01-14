@@ -8,6 +8,10 @@ body {
   margin-top:80px;
 }
 
+#contactTemplate{
+  display: none;
+}
+
 #headerRow > .headerData{
   border-bottom: 2px solid lightgrey;
   background-color: white;
@@ -19,12 +23,25 @@ body {
   padding: 0px;
 }
 
-.contactDelete button{
+.contactDelete button {
   width: 32px;
   height: 32px;
   padding: 0px;
   padding-top: 3px;
+  border-radius: 4px;
+  border: 0px solid red;
+  background-color: #ff8282;
 }
+
+.contactDelete button:focus, .contactDelete button:active{
+  outline: 0px;
+}
+
+.contactDelete button:active {
+    background-color: #e07272;
+}
+
+
 
 tr {
   height: 40px;
