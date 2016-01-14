@@ -28,18 +28,22 @@ $(document).ready(function(){
 
   $contactsBody.on("dblclick", ".contactRow td", function(){
     $editing = $(this);
-    swal({   title: "An input!",
-      text: "Write something interesting:",
+    debugger;
+    swal({   title: "Editing "+$editing.attr('class').slice(7)+": ",
+      text: "Current Value: "+$editing.text(),
       type: "input",
       inputType: "text",
       showCancelButton: true,
       closeOnConfirm: false,
       animation: "slide-from-top",
-      inputPlaceholder: "Write something"
+      inputPlaceholder: "New value"
     },
     function(inputValue){
       console.log(inputValue);
-      if (inputValue === false) return false;
+      if (inputValue === false){
+        debugger;
+        return false;
+      }
       if (inputValue === "") {
         swal.showInputError("You need to write something!");
         return false;
@@ -49,6 +53,7 @@ $(document).ready(function(){
       contacts[$editing.closest('tr').data('id')-1][($editing.attr('class').slice(7).toLowerCase())] = inputValue;
       updateLocalStorage();
       swal.close();
+      $editing = null;
     });
 
   });
