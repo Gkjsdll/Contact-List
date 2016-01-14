@@ -11,8 +11,6 @@ $(document).ready(function(){
   var $editing = null;
   var $headers = $('#headerRow td').not('#headerRemove');
 
-  var sorting = {"by": "name", "order": "reverse"};
-
   var storeContactTemplate = {"name": "–", "email": "–", "phone": "–", "address": "–"};
   var storeName;
   var storeEmail;
@@ -48,7 +46,6 @@ $(document).ready(function(){
         swal.showInputError("You need to write something!");
         return false;
       }
-      debugger;
       $editing.text(inputValue);
       contacts[$editing.closest('tr').data('id')-1][($editing.attr('class').slice(7).toLowerCase())] = inputValue;
       $editing.closest('tr').data($editing.attr('class').slice(7).toLowerCase(), inputValue);
@@ -68,7 +65,6 @@ $(document).ready(function(){
 
   $headers.click(function(e){
     e.stopPropagation();
-    sortRows($(this).attr('id').slice(6).toLowerCase()); //.attr('class').slice(7)
   });
 
   initList();
@@ -142,6 +138,9 @@ $(document).ready(function(){
         swal("You can double click on a contact's info to change it.","","success");
       }
     }
+    if($newName.val().toLowerCase().includes("cade") && $newName.val().toLowerCase().includes("nichols")){
+      swal({title: "Here's a cade",  imageUrl: "talkingHeadCade.gif"});
+    }
   };
 
   function updateLocalStorage(){
@@ -154,32 +153,5 @@ $(document).ready(function(){
     updateLocalStorage();
     $(this).closest('tr').remove();
   }
-
-  // function sortRows(sortBy){
-  //   debugger;
-  //   if(sorting.by === sortBy){
-  //     if(sorting.order === "reverse"){
-  //       sorting.order = "forward";
-  //     }
-  //     else{
-  //       sorting.order = "reverse";
-  //     }
-  //   }
-  //   else{
-  //     sorting.order = "forward";
-  //   }
-  //   debugger;
-  //   var $contacts = _.sortBy($('tr').not('#headerRow').not('#contactTemplate').clone(), sortBy, function(o) {
-  //     return $(o).data(sortBy);
-  //   });
-  //   sorting.by = sortBy;
-  //   if(sorting.order === "reverse") $contacts = $contacts.reverse();
-  //
-  //   $('tr').not('#headerRow').not("#contactTemplate").addClass("deleteMe");
-  //   // $contacts has .data() at this point;
-  //   $contactsBody.append($contacts);
-  //   $contactsBody.find('.deleteMe').remove();
-  //   debugger;
-  // };
 
 });
